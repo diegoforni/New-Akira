@@ -340,11 +340,7 @@ setTimeout(function() {
   }  
   
   
-  // add events listeners for the start speaking and read mind //
-  document.getElementById("r2").addEventListener("click", vasBien);
-  document.getElementById("r3").addEventListener("click", peroYo);
-  document.getElementById('alfred').addEventListener('click', myFunctionSwitcher);
-  
+
 
   
 
