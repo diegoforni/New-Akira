@@ -1,0 +1,21 @@
+
+  /* ---- particles.js container ---- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  
+  /* MAIN MENU */
+  .background-box {
+    background-color: #14191e;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+   
+.center{
+  display: flex;
+  justify-content: center;
+}
