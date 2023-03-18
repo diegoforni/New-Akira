@@ -341,12 +341,11 @@ setTimeout(function() {
   
   
 
-
-  
+//Borré que se activen las funciones tocando a akira  
 
 
 // Agregar todas las funciones necesarias//
-var myFunctions = [miTurno, ahoraSi, decime, readMind, siguiente];
+var myFunctions = [miTurno, ahoraSi, readMind, siguiente];
 var nextFunction = 0;
 function myFunctionSwitcher() {
     myFunctions[nextFunction]();
