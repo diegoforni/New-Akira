@@ -1,5 +1,4 @@
-//Crear imagen
-// Load the 8 images
+// Load the 10 images
 const image1 = new Image();
 image1.src = "/static/images/J.png";
 
@@ -24,34 +23,42 @@ image7.src = "/static/images/K.png";
 const image8 = new Image();
 image8.src = "/static/images/treboles.png";
 
+const image9 = new Image();
+image9.src = "/static/images/Q.png";
+
+const image10 = new Image();
+image10.src = "/static/images/diamantes.png";
+
 // Create a canvas to join the images
 const canvas = document.createElement("canvas");
-canvas.width = 2 * 180;
-canvas.height = 4 * 144;
+canvas.width = 180;
+canvas.height = 10 * 144;
 canvas.id = "final";
-canvas.hidden="true"
-
+canvas.hidden = "true";
 
 let loadedCount = 0;
 
 const onLoad = () => {
   loadedCount++;
-  if (loadedCount === 8) {
+  if (loadedCount === 10) {
     // All images have loaded, draw them on the canvas
     const ctx = canvas.getContext("2d");
-    
+
     // Set the background color to white
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Draw each image at a different vertical position
     ctx.drawImage(image1, 0, 0);
-    ctx.drawImage(image2, 180, 0);
-    ctx.drawImage(image3, 0, 144);
-    ctx.drawImage(image4, 180, 144);
-    ctx.drawImage(image5, 0, 288);
-    ctx.drawImage(image6, 180, 288);
-    ctx.drawImage(image7, 0, 432);
-    ctx.drawImage(image8, 180, 432);
+    ctx.drawImage(image2, 0, 144);
+    ctx.drawImage(image3, 0, 288);
+    ctx.drawImage(image4, 0, 432);
+    ctx.drawImage(image5, 0, 576);
+    ctx.drawImage(image6, 0, 720);
+    ctx.drawImage(image7, 0, 864);
+    ctx.drawImage(image8, 0, 1008);
+    ctx.drawImage(image9, 0, 1152);
+    ctx.drawImage(image10, 0, 1296);
 
     // Get the canvas image data as a data URL
     const joinedImageData = canvas.toDataURL("image/jpeg", 0.8);
@@ -61,7 +68,6 @@ const onLoad = () => {
     imgElement.src = joinedImageData;
     imgElement.id = "imagenFinal";
     document.body.appendChild(canvas);
-
   }
 };
 
@@ -74,6 +80,8 @@ image5.onload = onLoad;
 image6.onload = onLoad;
 image7.onload = onLoad;
 image8.onload = onLoad;
+image9.onload = onLoad;
+image10.onload = onLoad;
 
 
 //link
