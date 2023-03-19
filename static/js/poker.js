@@ -413,7 +413,7 @@ function dataURItoBlob(dataURI) {
 
 function siguiente() {
   setTimeout(function() {
-    document.getElementById("speach").innerHTML = `La siguiente?.`;
+    document.getElementById("speach").innerHTML = `Imposible. Esto está arreglado`;
     var typed_strings = $('.hero .hero-text .typed-text').text();
     var typed = new Typed('.hero .hero-text h2', {
     strings: typed_strings.split('.'),
@@ -426,9 +426,9 @@ function siguiente() {
     var speach = document.getElementById("speach").innerHTML;
     msg.text = speach;
     speechSynthesis.speak(msg);
-}, 5000);
+}, 30000);
 setTimeout(function() {
-  document.getElementById("speach").innerHTML = `Seguro?.`;
+  document.getElementById("speach").innerHTML = `Yo soy experta. Y digo que este efecto fué arreglado.`;
   var typed_strings = $('.hero .hero-text .typed-text').text();
   var typed = new Typed('.hero .hero-text h2', {
   strings: typed_strings.split('.'),
@@ -441,9 +441,9 @@ setTimeout(function() {
   var speach = document.getElementById("speach").innerHTML;
   msg.text = speach;
   speechSynthesis.speak(msg);
-}, 7500);
+}, 45000);
   setTimeout(function() {
-      document.getElementById("speach").innerHTML = `Sigue.2 de corazones. Y 7 de diamantes.`;
+      document.getElementById("speach").innerHTML = `Soy experta en pick pocket. Qué hora es Diego?`;
       var typed_strings = $('.hero .hero-text .typed-text').text();
       var typed = new Typed('.hero .hero-text h2', {
       strings: typed_strings.split('.'),
@@ -456,10 +456,10 @@ setTimeout(function() {
       var speach = document.getElementById("speach").innerHTML;
       msg.text = speach;
       speechSynthesis.speak(msg);
-  }, 10000);
+  }, 50000);
     //Second half
     setTimeout(function() {
-      document.getElementById("speach").innerHTML = `As de picas. `;
+      document.getElementById("speach").innerHTML = `Ya es muy tarde para eso. `;
       var typed_strings = $('.hero .hero-text .typed-text').text();
       var typed = new Typed('.hero .hero-text h2', {
       strings: typed_strings.split('.'),
@@ -472,58 +472,11 @@ setTimeout(function() {
       var speach = document.getElementById("speach").innerHTML;
       msg.text = speach;
       speechSynthesis.speak(msg);
-  }, 20000);
-  //Second half
-  setTimeout(function() {
-    document.getElementById("speach").innerHTML = `Pero yo se que. En tu bolsillo izquierdo. Tenés 50 pesos..`;
-    var typed_strings = $('.hero .hero-text .typed-text').text();
-    var typed = new Typed('.hero .hero-text h2', {
-    strings: typed_strings.split('.'),
-    typeSpeed: 70,
-    backSpeed: 1,
-    smartBackspace: false,
-    loop: false,
-    showCursor: false
-    });
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
-}, 27000);
-setTimeout(function() {
-  document.getElementById("speach").innerHTML = `No lo sé.`;
-  var typed_strings = $('.hero .hero-text .typed-text').text();
-  var typed = new Typed('.hero .hero-text h2', {
-  strings: typed_strings.split('.'),
-  typeSpeed: 70,
-  backSpeed: 1,
-  smartBackspace: false,
-  loop: false,
-  showCursor: false
-  });
-  var speach = document.getElementById("speach").innerHTML;
-  msg.text = speach;
-  speechSynthesis.speak(msg);
-}, 33000);
-setTimeout(function() {
-  document.getElementById("speach").innerHTML = `Y yo tengo. Tu mercado pago.`;
-  var typed_strings = $('.hero .hero-text .typed-text').text();
-  var typed = new Typed('.hero .hero-text h2', {
-  strings: typed_strings.split('.'),
-  typeSpeed: 70,
-  backSpeed: 1,
-  smartBackspace: false,
-  loop: false,
-  showCursor: false
-  });
-  var speach = document.getElementById("speach").innerHTML;
-  msg.text = speach;
-  speechSynthesis.speak(msg);
-}, 37000);
+  }, 57000);
   }  
   
   
 
-//Borré que se activen las funciones tocando a akira  
 
   
 // add events listeners for the start speaking //
