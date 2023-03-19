@@ -19,7 +19,7 @@ function readMind() {
     var offset = orderOf(r2,s2,r3,s3,r4,s4);
     var r5 = offset + parseInt(r1);
     if (r5 >= 15) r5 = r5 - 13;
-        document.getElementById("speach").innerHTML = "5 cartas al azar. Condiciones de laboratorio.Tu carta es: " + r2t(r5) + " de " + s5 + "!";
+        document.getElementById("speach").innerHTML = ".Tu carta es: " + r2t(r5) + " de " + s5 + "!";
         var typed_strings = $('.hero .hero-text .typed-text').text();
         var typed = new Typed('.hero .hero-text h2', {
             strings: typed_strings.split(','),
@@ -161,7 +161,8 @@ var miTurno = once(function() {
       typeSpeed: 70,
       backSpeed: 1,
       smartBackspace: false,
-      loop: false
+      loop: false,
+      showCursor: false
     });
     // Start talking with what is already in the html //
     //Llamar la proxima función con un click
@@ -180,7 +181,8 @@ var miTurno = once(function() {
       typeSpeed: 70,
       backSpeed: 1,
       smartBackspace: false,
-      loop: false
+      loop: false,
+      showCursor: false
     });
     // Start talking with what is already in the html //
     //sleep para chiste y llamar la otra
@@ -199,7 +201,8 @@ var miTurno = once(function() {
       typeSpeed: 70,
       backSpeed: 1,
       smartBackspace: false,
-      loop: false
+      loop: false,
+      showCursor: false
     });
     // Start talking with what is already in the html //
     //dejar correr el audio sin texto hasta el marker 8, apenas termina, mandá la otra función
@@ -210,22 +213,55 @@ var miTurno = once(function() {
 
   // Pedir la carta//
   var relleno = once(function() {
-    document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en. La nube. Durante años. Los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá. Pero eso se puede hacer. Con la baraja. Daredevil de Henry. Pero bueno,. Yo no tengo ojos. Decíme las cartas en la mesa.`;
+    document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en la nube. Durante años los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá eso se puede. Con la baraja Daredevil de Henry. Pero, yo no tengo ojos. Decíme las cartas en la mesa.`;
     // Typed.js 
     var typed_strings = $('.hero .hero-text .typed-text').text();
     var typed = new Typed('.hero .hero-text h2', {
       strings: typed_strings.split('.'),
-      typeSpeed: 70,
-      backSpeed: 1,
+      typeSpeed: 30,
+      backSpeed: 0.01,
       smartBackspace: false,
       loop: false
     });
-    // Start talking with what is already in the html //
-    //dejar correr el audio sin texto 
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
+    const relleno = new Audio('./static/audio/relleno.mp3');
+    relleno.play();
+    relleno.addEventListener('ended',function(){
+      imposible();
+    });
 }); 
+
+  // Pedir la carta//
+  var imposible = once(function() {
+    setTimeout(function() {
+      document.getElementById("speach").innerHTML = `5 cartas al azar. Condiciones de laboratorio.`;
+      // Typed.js 
+      var typed_strings = $('.hero .hero-text .typed-text').text();
+      var typed = new Typed('.hero .hero-text h2', {
+        strings: typed_strings.split('.'),
+        typeSpeed: 70,
+        backSpeed: 1,
+        smartBackspace: false,
+        loop: false,
+        showCursor: false
+      });
+      const imposible = new Audio('./static/audio/imposible.mp3');
+      imposible.play();
+      // Start talking with what is already in the html //
+      //dejar correr el audio sin texto 
+  }, 7000);
+
+}); 
+
+var readEnUnToque = once(function() {
+  readMind();
+
+}, 7000);
+
+
+function listardo(){
+  console.log("Listardo");
+}
+
 
 //Ejemplo setTimeOut
 
@@ -343,9 +379,12 @@ setTimeout(function() {
 
 //Borré que se activen las funciones tocando a akira  
 
+  
+// add events listeners for the start speaking //
+document.getElementById('alfred').addEventListener('click', myFunctionSwitcher);
 
 // Agregar todas las funciones necesarias//
-var myFunctions = [miTurno, ahoraSi, readMind, siguiente];
+var myFunctions = [relleno, readMind, siguiente];
 var nextFunction = 0;
 function myFunctionSwitcher() {
     myFunctions[nextFunction]();
