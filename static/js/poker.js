@@ -227,6 +227,9 @@ var miTurno = once(function() {
     relleno.play();
     relleno.addEventListener('ended',function(){
       imposible();
+      const fondo = new Audio('./static/audio/fondo.mp3');
+      fondo.play();
+
     });
 }); 
 
@@ -268,11 +271,17 @@ function listardo(){
     var s2 = document.getElementById("s2").value;
     var s3 = document.getElementById("s3").value;
     var s4 = document.getElementById("s4").value;
-     
+
+        
     var s5 = s1;
     var offset = orderOf(r2,s2,r3,s3,r4,s4);
     var r5 = offset + parseInt(r1);
-    msg.text = "Tu carta es: " + r2t(r5) + " de " + s5 + "!";
+    var offset = orderOf(r2,s2,r3,s3,r4,s4);
+    var r5 = offset + parseInt(r1);
+    if (r5 >= 15) r5 = r5 - 13;
+
+
+    
   
   // Load the 10 images
 const image1 = new Image();
@@ -456,7 +465,7 @@ setTimeout(function() {
       var speach = document.getElementById("speach").innerHTML;
       msg.text = speach;
       speechSynthesis.speak(msg);
-  }, 50000);
+  }, 55000);
     //Second half
     setTimeout(function() {
       document.getElementById("speach").innerHTML = `Ya es muy tarde para eso. `;
@@ -472,7 +481,7 @@ setTimeout(function() {
       var speach = document.getElementById("speach").innerHTML;
       msg.text = speach;
       speechSynthesis.speak(msg);
-  }, 57000);
+  }, 62000);
   }  
   
   
