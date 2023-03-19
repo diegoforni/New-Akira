@@ -1,33 +1,33 @@
 // Load the 10 images
 const image1 = new Image();
-image1.src = "/static/images/J.png";
+image1.src = "/static/images/11.png";
 
 const image2 = new Image();
-image2.src = "/static/images/corazones.png";
+image2.src = "/static/images/Corazones.png";
 
 const image3 = new Image();
 image3.src = "/static/images/7.png";
 
 const image4 = new Image();
-image4.src = "/static/images/diamantes.png";
+image4.src = "/static/images/Diamantes.png";
 
 const image5 = new Image();
 image5.src = "/static/images/3.png";
 
 const image6 = new Image();
-image6.src = "/static/images/picas.png";
+image6.src = "/static/images/Picas.png";
 
 const image7 = new Image();
-image7.src = "/static/images/K.png";
+image7.src = "/static/images/9.png";
 
 const image8 = new Image();
-image8.src = "/static/images/treboles.png";
+image8.src = "/static/images/Tréboles.png";
 
 const image9 = new Image();
-image9.src = "/static/images/Q.png";
+image9.src = "/static/images/2.png";
 
 const image10 = new Image();
-image10.src = "/static/images/diamantes.png";
+image10.src = "/static/images/Diamantes.png";
 
 // Create a canvas to join the images
 const canvas = document.createElement("canvas");
