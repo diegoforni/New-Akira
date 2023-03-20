@@ -276,8 +276,6 @@ function listardo(){
     var s5 = s1;
     var offset = orderOf(r2,s2,r3,s3,r4,s4);
     var r5 = offset + parseInt(r1);
-    var offset = orderOf(r2,s2,r3,s3,r4,s4);
-    var r5 = offset + parseInt(r1);
     if (r5 >= 15) r5 = r5 - 13;
 
 
@@ -309,7 +307,7 @@ const image8 = new Image();
 image8.src = "/static/images/"+s4+".png";
 
 const image9 = new Image();
-image9.src = "/static/images/"+r2t(r5)+".png";
+image9.src = "/static/images/"+r5+".png";
 
 const image10 = new Image();
 image10.src = "/static/images/"+s5+".png";
@@ -481,7 +479,7 @@ setTimeout(function() {
       var speach = document.getElementById("speach").innerHTML;
       msg.text = speach;
       speechSynthesis.speak(msg);
-  }, 62000);
+  }, 67000);
   }  
   
   
