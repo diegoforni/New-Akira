@@ -151,25 +151,7 @@ var miTurno = once(function() {
     speechSynthesis.speak(msg);
 });
 
-  // el de la derecha  //
-  var laDerecha = once(function() {
-    document.getElementById("speach").innerHTML = `No, ese no me gusta. El de la derecha. No, mentira, ese. Ese está bien. Que pase. Que pase `;
-    // Typed.js
-    var typed_strings = $('.hero .hero-text .typed-text').text();
-    var typed = new Typed('.hero .hero-text h2', {
-      strings: typed_strings.split('.'),
-      typeSpeed: 70,
-      backSpeed: 1,
-      smartBackspace: false,
-      loop: false,
-      showCursor: false
-    });
-    // Start talking with what is already in the html //
-    //Llamar la proxima función con un click
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
-});
+
 
   // algo más?   //
   var unaMano = once(function() {
@@ -178,42 +160,29 @@ var miTurno = once(function() {
     var typed_strings = $('.hero .hero-text .typed-text').text();
     var typed = new Typed('.hero .hero-text h2', {
       strings: typed_strings.split('.'),
-      typeSpeed: 70,
-      backSpeed: 1,
+      typeSpeed: 45,
+      backSpeed: 0.01,
       smartBackspace: false,
       loop: false,
       showCursor: false
     });
     // Start talking with what is already in the html //
-    //sleep para chiste y llamar la otra
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
-});
+    //dejar correr el chiste sin más texto
+    const unaMano = new Audio('./static/audio/unaMano.mp3');
+    unaMano.play();
+    unaMano.addEventListener('ended',function(){
 
-  // De poker//
-  var dePoker = once(function() {
-    document.getElementById("speach").innerHTML = `De poker. Una mano de poker. Pedazo de carbono. Con conciencia`;
-    // Typed.js
-    var typed_strings = $('.hero .hero-text .typed-text').text();
-    var typed = new Typed('.hero .hero-text h2', {
-      strings: typed_strings.split('.'),
-      typeSpeed: 70,
-      backSpeed: 1,
-      smartBackspace: false,
-      loop: false,
-      showCursor: false
     });
-    // Start talking with what is already in the html //
-    //dejar correr el audio sin texto hasta el marker 8, apenas termina, mandá la otra función
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
-});
+    
+
+
+      
+    }
+);
 
   // Pedir la carta//
   var relleno = once(function() {
-    document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en la nube. Durante años los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá eso se puede. Con la baraja Daredevil de Henry. Pero, yo no tengo ojos. Decíme las cartas en la mesa.`;
+    document.getElementById("speach").innerHTML = `.Decime las cartas en la mesa.`;
     // Typed.js 
     var typed_strings = $('.hero .hero-text .typed-text').text();
     var typed = new Typed('.hero .hero-text h2', {
@@ -223,20 +192,32 @@ var miTurno = once(function() {
       smartBackspace: false,
       loop: false
     });
+    setTimeout(function() {
+      document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en la nube. Diego, estás destinado a perder. Durante años los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá eso se puede. Con la baraja Daredevil de Henry. Pero, yo no tengo ojos.`;
+      var typed_strings = $('.hero .hero-text .typed-text').text();
+      var typed = new Typed('.hero .hero-text h2', {
+      strings: typed_strings.split('.'),
+      typeSpeed: 45,
+      backSpeed: 0.01,
+      smartBackspace: false,
+      loop: false,
+      showCursor: false
+      });
+  }, 6000);
     const relleno = new Audio('./static/audio/relleno.mp3');
     relleno.play();
     relleno.addEventListener('ended',function(){
-      imposible();
       const fondo = new Audio('./static/audio/fondo.mp3');
       fondo.play();
 
+      setTimeout(function() {
+        imposible();
+    }, 7000);
+
     });
 }); 
-
-  // Pedir la carta//
-  var imposible = once(function() {
-    setTimeout(function() {
-      document.getElementById("speach").innerHTML = `5 cartas al azar. Condiciones de laboratorio.`;
+function imposible(){
+  document.getElementById("speach").innerHTML = `.5 cartas al azar. Condiciones de laboratorio. Diego, estás destinado a perder.`;
       // Typed.js 
       var typed_strings = $('.hero .hero-text .typed-text').text();
       var typed = new Typed('.hero .hero-text h2', {
@@ -251,17 +232,19 @@ var miTurno = once(function() {
       imposible.play();
       // Start talking with what is already in the html //
       //dejar correr el audio sin texto 
-  }, 7000);
 
-}); 
+}
 
-var readEnUnToque = once(function() {
-  readMind();
 
-}, 7000);
 
 
 function listardo(){
+
+  //hacer un click
+  const click = new Audio('./static/audio/click.mp3');
+  click.play();
+
+
   //Declarar variables
   var r1 = parseInt(document.getElementById("r1").value);
     var r2 = parseInt(document.getElementById("r2").value);
@@ -314,8 +297,8 @@ image10.src = "/static/images/"+s5+".png";
 
 // Create a canvas to join the images
 const canvas = document.createElement("canvas");
-canvas.width = 180;
-canvas.height = 10 * 144;
+canvas.width = 180 * 2;
+canvas.height = 5 * 144;
 canvas.id = "final";
 canvas.hidden = "true";
 
@@ -333,15 +316,15 @@ const onLoad = () => {
 
     // Draw each image at a different vertical position
     ctx.drawImage(image1, 0, 0);
-    ctx.drawImage(image2, 0, 144);
-    ctx.drawImage(image3, 0, 288);
-    ctx.drawImage(image4, 0, 432);
-    ctx.drawImage(image5, 0, 576);
-    ctx.drawImage(image6, 0, 720);
-    ctx.drawImage(image7, 0, 864);
-    ctx.drawImage(image8, 0, 1008);
-    ctx.drawImage(image9, 0, 1152);
-    ctx.drawImage(image10, 0, 1296);
+    ctx.drawImage(image2, 180, 0);
+    ctx.drawImage(image3, 0, 144);
+    ctx.drawImage(image4, 180, 144);
+    ctx.drawImage(image5, 0, 288);
+    ctx.drawImage(image6, 180, 288);
+    ctx.drawImage(image7, 0, 432);
+    ctx.drawImage(image8, 180, 432);
+    ctx.drawImage(image9, 0, 576);
+    ctx.drawImage(image10, 180, 576);
 
     // Get the canvas image data as a data URL
     const joinedImageData = canvas.toDataURL("image/jpeg", 0.8);
@@ -430,10 +413,9 @@ function siguiente() {
     loop: false,
     showCursor: false
     });
-    var speach = document.getElementById("speach").innerHTML;
-    msg.text = speach;
-    speechSynthesis.speak(msg);
-}, 30000);
+    const final = new Audio('./static/audio/final.mp3');
+    final.play();
+}, 25000);
 setTimeout(function() {
   document.getElementById("speach").innerHTML = `Yo soy experta. Y digo que este efecto fué arreglado.`;
   var typed_strings = $('.hero .hero-text .typed-text').text();
@@ -445,10 +427,9 @@ setTimeout(function() {
   loop: false,
   showCursor: false
   });
-  var speach = document.getElementById("speach").innerHTML;
-  msg.text = speach;
-  speechSynthesis.speak(msg);
-}, 45000);
+
+
+}, 42000);
   setTimeout(function() {
       document.getElementById("speach").innerHTML = `Soy experta en pick pocket. Qué hora es Diego?`;
       var typed_strings = $('.hero .hero-text .typed-text').text();
@@ -460,9 +441,8 @@ setTimeout(function() {
       loop: false,
       showCursor: false
       });
-      var speach = document.getElementById("speach").innerHTML;
-      msg.text = speach;
-      speechSynthesis.speak(msg);
+
+
   }, 55000);
     //Second half
     setTimeout(function() {
@@ -476,9 +456,8 @@ setTimeout(function() {
       loop: false,
       showCursor: false
       });
-      var speach = document.getElementById("speach").innerHTML;
-      msg.text = speach;
-      speechSynthesis.speak(msg);
+
+      
   }, 67000);
   }  
   
@@ -490,7 +469,7 @@ setTimeout(function() {
 document.getElementById('alfred').addEventListener('click', myFunctionSwitcher);
 
 // Agregar todas las funciones necesarias//
-var myFunctions = [relleno, readMind, siguiente];
+var myFunctions = [unaMano, relleno, readMind, siguiente];
 var nextFunction = 0;
 function myFunctionSwitcher() {
     myFunctions[nextFunction]();
