@@ -64,12 +64,9 @@ function showKnightPositions() {
     //las cartas contadas van a top
     // Updates the HTML elements with the results
     document.getElementById("knightPositions").textContent = "Posición de los Reyes: " + knightPositions.join(", ");
-    document.getElementById("newDeckOrder").textContent = "Nuevo orden de la baraja: " + newDeckOrder.join(", ");
-
     //Se podría hacer siempre 6
     document.getElementById("firstAcePosition").textContent = "Posición del primer as: " + (firstAcePosition !== -1 ? firstAcePosition + 1 : "N/A");
     document.getElementById("fiveCardsAfterAce").textContent = "5 cartas después del As: " + fiveCardsAfterAce;
-    document.getElementById("finalDeckOrder").textContent = "Orden final de la baraja: " + finalDeckOrder;
 
     finalDeckOrder = finalDeckOrder.splice(5);
 
