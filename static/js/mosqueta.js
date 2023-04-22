@@ -5,6 +5,12 @@ var nombre = document.getElementById("name").innerHTML;
 var msg = new SpeechSynthesisUtterance();
 msg.lang = 'es-US';  
 
+function music(){
+  const music = new Audio('./static/audio/music.mp3');
+  music.play();
+
+}
+
 function mosqueta() {
     const mosqueta = new Audio('./static/audio/mosqueta.mp3');
     mosqueta.play();
@@ -66,7 +72,13 @@ setTimeout(function() {
       loop: false,
       showCursor: false
       });
-  }, 62000);
+  }, 66000);
+  setTimeout(function() {
+    enojada();
+}, 94000);
+setTimeout(function() {
+  tranquila();
+}, 100000);
       //Second half
       setTimeout(function() {
         document.getElementById("speach").innerHTML = `.Ahora es mí turno, voy a hacer. Algo imposible, pero para eso. Música de entrada épica activada. `;
@@ -79,7 +91,7 @@ setTimeout(function() {
         loop: false,
         showCursor: false
         });
-    }, 114000);
+    }, 115500);
         //Second half
         setTimeout(function() {
           document.getElementById("speach").innerHTML = `.Upss, perdón. Me confundí de lista de reproducción.Ahora sí, voy a predecir. Una mano de poker, con el 100%. De certeza.`;
@@ -107,9 +119,27 @@ function redirect(){
 // add events listeners for the start speaking //
 document.getElementById('alfred').addEventListener('click', myFunctionSwitcher);
 
+document.addEventListener("keypress", function(event) {
+  myFunctionSwitcher();
+});
+
+var element = document.getElementById("alfred");
+
+function enojada(){
+  element.classList.add("enojada");
+
+}
+function tranquila(){
+  element.classList.remove("enojada");
+}
+
+
+
+
+
 
 // Agregar todas las funciones necesarias//
-var myFunctions = [mosqueta, redirect];
+var myFunctions = [music, mosqueta, redirect];
 var nextFunction = 0;
 function myFunctionSwitcher() {
     myFunctions[nextFunction]();

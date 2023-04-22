@@ -42,9 +42,6 @@ function readMind() {
       pinta.play();
     });
 
-
-    siguiente();
-
     }
      
 function orderOf(r2,s2,r3,s3,r4,s4) {
@@ -193,17 +190,17 @@ var miTurno = once(function() {
       loop: false
     });
     setTimeout(function() {
-      document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en la nube. Diego, estás destinado a perder. Durante años los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá eso se puede. Con la baraja Daredevil de Henry. Pero, yo no tengo ojos.`;
+      document.getElementById("speach").innerHTML = `Años de evolución. Son destronados. Gracias a la superioridad. Del procesamiento en la nube. Durante años los magos han querido. Encontrar el método. Para adivinar cartas así. En condiciones imposibles. Una baraja prestada. Mezclada por el espetador. Y cartas elegidas al azar. Usted dirá eso se puede. Con la baraja Daredevil de Henry. Pero, yo no tengo ojos.`;
       var typed_strings = $('.hero .hero-text .typed-text').text();
       var typed = new Typed('.hero .hero-text h2', {
       strings: typed_strings.split('.'),
-      typeSpeed: 45,
+      typeSpeed: 30,
       backSpeed: 0.01,
       smartBackspace: false,
       loop: false,
       showCursor: false
       });
-  }, 6000);
+  }, 11700);
     const relleno = new Audio('./static/audio/relleno.mp3');
     relleno.play();
     relleno.addEventListener('ended',function(){
@@ -415,7 +412,7 @@ function siguiente() {
     });
     const final = new Audio('./static/audio/final.mp3');
     final.play();
-}, 25000);
+}, 0);
 setTimeout(function() {
   document.getElementById("speach").innerHTML = `Yo soy experta. Y digo que este efecto fué arreglado.`;
   var typed_strings = $('.hero .hero-text .typed-text').text();
@@ -429,7 +426,7 @@ setTimeout(function() {
   });
 
 
-}, 42000);
+}, 17000);
   setTimeout(function() {
       document.getElementById("speach").innerHTML = `Soy experta en pick pocket. Qué hora es Diego?`;
       var typed_strings = $('.hero .hero-text .typed-text').text();
@@ -443,7 +440,7 @@ setTimeout(function() {
       });
 
 
-  }, 55000);
+  }, 30000);
     //Second half
     setTimeout(function() {
       document.getElementById("speach").innerHTML = `Ya es muy tarde para eso. `;
@@ -458,7 +455,7 @@ setTimeout(function() {
       });
 
       
-  }, 67000);
+  }, 42000);
   }  
   
   
@@ -467,6 +464,9 @@ setTimeout(function() {
   
 // add events listeners for the start speaking //
 document.getElementById('alfred').addEventListener('click', myFunctionSwitcher);
+document.addEventListener("keypress", function(event) {
+  myFunctionSwitcher();
+});
 
 // Agregar todas las funciones necesarias//
 var myFunctions = [unaMano, relleno, readMind, siguiente];

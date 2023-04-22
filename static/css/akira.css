@@ -28,7 +28,25 @@
     animation: rotate var(--speed) linear infinite;
   }
   
-  
+  .enojada {
+    position: absolute;
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+  /* Created with https://www.css-gradient.com */
+  background: #FFFFFF;
+  background: -webkit-radial-gradient(center, #FFFFFF, #FFFFFF);
+  background: -moz-radial-gradient(center, #FFFFFF, #FFFFFF);
+  background: radial-gradient(ellipse at center, #ff0000, #ec9393);
+    z-index:2;
+    box-shadow: 
+      0 -10px 0 0 rgba(40, 40, 40, 0.9),
+      -7.5px 5px 0 0 rgba(123, 123, 123, 0.8),
+      7.5px 5px 0 0 rgba(215, 215, 215, 0.9);
+    animation: rotate var(--speed) linear infinite;
+  }
+
   @keyframes rotate {
     50% {
       transform: scale(1.2) rotate(360deg);
